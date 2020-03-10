@@ -1,0 +1,2 @@
+rootProject.name='MilitApp'
+include ':app'
