@@ -4,38 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_img"
-    android:backgroundTint="@drawable/back_img"
+    android:background="@drawable/BI"
     tools:context=".CalculatingActivity">
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginBottom="84dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/resultView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginBottom="172dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/resultView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="34dp"
-        android:text="Расчет показателей"
+        android:text="Создание визитки"
         android:textColor="?attr/colorError"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Resultbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="115dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="64dp"
-        android:text="Расчет"
+        android:background="@drawable/BI"
+        android:text="Добавить"
+        android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="60dp"
         android:ems="10"
@@ -45,10 +77,10 @@
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="60dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
@@ -56,10 +88,10 @@
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="256dp"
         android:ems="10"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/resultView"
@@ -67,34 +99,34 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_width="146dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Скорость бокового ветра"
-        android:textColor="?attr/colorError"
+        android:text="Название компании"
+        android:textColor="?android:attr/colorFocusedHighlight"
         app:layout_constraintBottom_toTopOf="@+id/editText1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_width="148dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="12dp"
-        android:text="Влажность"
-        android:textColor="?attr/colorError"
+        android:textColor="?android:attr/colorFocusedHighlight"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Фамилия:" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="39dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
         android:layout_marginBottom="9dp"
-        android:text="Дирекционный угол"
-        android:textColor="?attr/colorError"
+        android:text="Должность"
+        android:textColor="?android:attr/colorFocusedHighlight"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -108,5 +140,35 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Resultbutton" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="74dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="305dp"
+        android:layout_marginBottom="26dp"
+        android:text="Телефон"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="60dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="319dp"
+        android:layout_marginBottom="18dp"
+        android:text="E-mail"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintBottom_toTopOf="@+id/editText6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
