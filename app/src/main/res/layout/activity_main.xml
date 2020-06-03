@@ -4,22 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/BI"
+    android:background="@drawable/bi"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/Startbutton"
+        android:id="@+id/Enterbutton"
         android:layout_width="67dp"
         android:layout_height="25dp"
         android:layout_marginStart="106dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="106dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/BI"
-        android:text="Вход"
+        android:background="@drawable/bi"
+        android:text="@string/enter"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Settingsbutton3"
+        android:onClick="onEnterClick"
+        app:layout_constraintBottom_toTopOf="@+id/Regbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,32 +32,34 @@
         android:layout_height="22dp"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/BI"
-        android:text="Выход"
+        android:background="@drawable/bi"
+        android:text="@string/exit"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="18sp"
+        android:onClick="onQuitClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Settingsbutton3" />
+        app:layout_constraintTop_toBottomOf="@+id/Regbutton" />
 
     <Button
-        android:id="@+id/Settingsbutton3"
+        android:id="@+id/Regbutton"
         android:layout_width="155dp"
         android:layout_height="31dp"
         android:layout_marginStart="106dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="106dp"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/BI"
-        android:text="Регистрация"
+        android:background="@drawable/bi"
+        android:text="@string/registration"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="18sp"
+        android:onClick="onRegClick"
         app:layout_constraintBottom_toTopOf="@+id/Quitbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Startbutton" />
+        app:layout_constraintTop_toBottomOf="@+id/Enterbutton" />
 
     <TextView
         android:id="@+id/textView2"
@@ -64,7 +67,7 @@
         android:layout_height="122dp"
         android:layout_marginTop="52dp"
         android:gravity="center"
-        android:text="Электронные визитные карточки"
+        android:text="@string/project_name"
         android:textAllCaps="false"
         android:textColor="?attr/colorError"
         android:textSize="30sp"
@@ -74,7 +77,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/password"
         android:layout_width="133dp"
         android:layout_height="22dp"
         android:layout_marginStart="19dp"
@@ -83,13 +86,13 @@
         android:layout_marginBottom="21dp"
         android:ems="10"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/Startbutton"
+        app:layout_constraintBottom_toTopOf="@+id/Enterbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/login"
         android:layout_width="133dp"
         android:layout_height="22dp"
         android:layout_marginStart="19dp"
@@ -98,7 +101,7 @@
         android:layout_marginBottom="18dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -111,10 +114,10 @@
         android:layout_marginTop="237dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="191dp"
-        android:text="Логин"
+        android:text="@string/login"
         android:textColor="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/Settingsbutton3"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
+        app:layout_constraintBottom_toBottomOf="@+id/Regbutton"
+        app:layout_constraintEnd_toStartOf="@+id/login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0" />
@@ -127,10 +130,10 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="120dp"
-        android:text="Пароль"
+        android:text="@string/password"
         android:textColor="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toTopOf="@+id/Settingsbutton3"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/Regbutton"
+        app:layout_constraintEnd_toStartOf="@+id/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 

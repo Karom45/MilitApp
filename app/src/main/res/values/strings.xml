@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">MilitApp</string>
+    <string name="project_name">Электронные визитные карточки</string>
+    <string name="login">Логин</string>
+    <string name="enter">Вход</string>
+    <string name="password">Пароль</string>
+    <string name="registration">Регистрация</string>
+    <string name="exit">Выход</string>
+    <string name="cart_creation">Создание визитки</string>
+    <string name="comp_name">Название компании</string>
+    <string name="surname">Фамилия</string>
+    <string name="position">Должность</string>
+    <string name="phone">Телефон</string>
+    <string name="email">E-mail</string>
+    <string name="add">Добавить</string>
 </resources>

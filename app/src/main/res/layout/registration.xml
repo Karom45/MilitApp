@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/BI"
-    tools:context=".CalculatingActivity">
+    android:background="@drawable/bi"
+    tools:context=".Registration">
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/email"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/phone"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
@@ -44,7 +44,7 @@
         android:layout_marginStart="34dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="34dp"
-        android:text="Создание визитки"
+        android:text="@string/cart_creation"
         android:textColor="?attr/colorError"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,36 +58,36 @@
         android:layout_height="40dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="64dp"
-        android:background="@drawable/BI"
-        android:text="Добавить"
+        android:background="@drawable/bi"
+        android:text="@string/add"
         android:textColor="@android:color/holo_orange_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/company_name"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/surname"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/surname"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="60dp"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/position"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="200dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="60dp"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/position"
         android:layout_width="200dp"
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
@@ -103,9 +103,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="16dp"
-        android:text="Название компании"
+        android:text="@string/comp_name"
         android:textColor="?android:attr/colorFocusedHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
+        app:layout_constraintBottom_toTopOf="@+id/company_name"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -115,9 +115,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginBottom="12dp"
         android:textColor="?android:attr/colorFocusedHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
+        app:layout_constraintBottom_toTopOf="@+id/surname"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Фамилия:" />
+        android:text="@string/surname" />
 
     <TextView
         android:id="@+id/textView5"
@@ -125,9 +125,9 @@
         android:layout_height="20dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="9dp"
-        android:text="Должность"
+        android:text="@string/position"
         android:textColor="?android:attr/colorFocusedHighlight"
-        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintBottom_toTopOf="@+id/position"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -149,12 +149,12 @@
         android:layout_marginTop="17dp"
         android:layout_marginEnd="305dp"
         android:layout_marginBottom="26dp"
-        android:text="Телефон"
+        android:text="@string/phone"
         android:textColor="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toTopOf="@+id/editText5"
+        app:layout_constraintBottom_toTopOf="@+id/phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/position" />
 
     <TextView
         android:id="@+id/textView9"
@@ -164,11 +164,11 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="319dp"
         android:layout_marginBottom="18dp"
-        android:text="E-mail"
+        android:text="@string/email"
         android:textColor="@android:color/holo_orange_dark"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
+        app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText5" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
