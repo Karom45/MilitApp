@@ -8,9 +8,16 @@
     <string name="exit">Выход</string>
     <string name="cart_creation">Создание визитки</string>
     <string name="comp_name">Название компании</string>
+    <string name="name">Имя</string>
     <string name="surname">Фамилия</string>
     <string name="position">Должность</string>
     <string name="phone">Телефон</string>
     <string name="email">E-mail</string>
     <string name="add">Добавить</string>
+    <string name="title">Электронные визитные карточки</string>
+    <string name="text">Версия 1.0.0</string>
+    <string name="about">О приложении</string>
+    <string name="close">Закрыть</string>
+    <string name="delete">Удалить</string>
+    <string name="update">Изменить</string>
 </resources>
