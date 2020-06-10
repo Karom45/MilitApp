@@ -1,10 +1,13 @@
 package com.example.militapp;
 
-import org.apache.hc.core5.http.message.BasicNameValuePair;
+
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,7 +32,7 @@ import java.util.List;
 public class CardsActivity extends ListActivity {
 
     private ProgressDialog pDialog;
-
+    final String LOG_TAG = "myLogs";
 
     // Создаем JSON парсер
     JSONParser jParser = new JSONParser();
@@ -38,8 +41,8 @@ public class CardsActivity extends ListActivity {
 
 
     // url получения списка всех продуктов
-    private static String url_all_cards = "http://test.devcolibri.com/get_all_products.php";
-    private static final String url_delete_cards = "http://test.devcolibri.com/delete_product.php";
+    private static String url_all_cards = "http://localhost/android/get_all_cards.php";
+    private static final String url_delete_cards = "http://localhost/android/delete_card.php";
 
     // JSON Node names
     private static final String TAG_SUCCESS = "success";
@@ -59,11 +62,12 @@ public class CardsActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cards);
-
+        Log.d(LOG_TAG, "Запуск активности");
         // Hashmap for ListView
         cardsList = new ArrayList<>();
-
+        Log.d(LOG_TAG, "Заход в функцию");
         new LoadAllCards().execute();
+
 
         ListView lv = getListView();
         registerForContextMenu(lv);
@@ -81,6 +85,7 @@ public class CardsActivity extends ListActivity {
                 startActivityForResult(in, 100);
             }
         });
+
 
     }
 
@@ -148,16 +153,15 @@ public class CardsActivity extends ListActivity {
             pDialog.show();
         }
 
-        /**
-         * Получаем все продукт из url
-         * */
+
         protected String doInBackground(String... args) {
             // Будет хранить параметры
             List<NameValuePair> params = new ArrayList<>();
             // получаем JSON строк с URL
+            Log.d(LOG_TAG, "Вход в функцию");
             JSONObject json = jParser.makeHttpRequest(url_all_cards, "GET", params);
 
-            Log.d("All cards: ", json.toString());
+            Log.d(LOG_TAG, json.toString());
 
             try {
                 // Получаем SUCCESS тег для проверки статуса ответа сервера
@@ -165,7 +169,7 @@ public class CardsActivity extends ListActivity {
 
                 if (success == 1) {
                     // продукт найден
-                    // Получаем масив из Продуктов
+
                     cards = json.getJSONArray(TAG_CARDS);
 
                     // перебор всех продуктов

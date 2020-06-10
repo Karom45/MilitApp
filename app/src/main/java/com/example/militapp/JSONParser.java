@@ -21,6 +21,7 @@ public class JSONParser {
     static InputStream is = null;
     static JSONObject jObj = null;
     static String json = "";
+    final String LOG_TAG = "myLogs";
 
     // constructor
     public JSONParser() {
@@ -49,14 +50,18 @@ public class JSONParser {
 
             }else if(method == "GET"){
 // request method is GET
+                Log.d(LOG_TAG, "начал обработки");
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 String paramString = URLEncodedUtils.format (params, "utf-8");
                 url += "?" + paramString;
                 HttpGet httpGet = new HttpGet(url);
 
+
                 HttpResponse httpResponse = httpClient.execute(httpGet);
+                Log.d(LOG_TAG, "Cередина");
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
+                Log.d(LOG_TAG, "Конец");
             }
 
         } catch (UnsupportedEncodingException e) {

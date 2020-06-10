@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity{
 
     final int ABOUT_APP = 1;
-
+    final String LOG_TAG = "myLogs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void onEnterClick(View View) {
         Intent intent = new Intent(this, CardsActivity.class);
+        Log.d(LOG_TAG, "Вход");
         startActivity(intent);
     }
 

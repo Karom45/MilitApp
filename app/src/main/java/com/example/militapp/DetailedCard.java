@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
@@ -21,7 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateCard extends Activity {
+public class DetailedCard  extends Activity {
     EditText inputCompany;
     EditText inputName;
     EditText inputSurname;
@@ -42,10 +41,8 @@ public class UpdateCard extends Activity {
     JSONParser jsonParser = new JSONParser();
 
     String id;
-
-    private static String url_update_card = "http://localhost/android/update_card.php";
     private static String url_card_detials = "http://localhost/android/get_card_details.php";
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +55,9 @@ public class UpdateCard extends Activity {
         inputPhone = findViewById(R.id.phone);
 
         tv = findViewById(R.id.textView);
-        tv.setText("Изменение визитной карточки");
+        tv.setText("Взитная карточка");
         Button resultButton = findViewById(R.id.Resultbutton);
-        resultButton.setText(R.string.update);
+        resultButton.setVisibility(View.GONE);
 
         Intent i = getIntent();
 
@@ -68,19 +65,8 @@ public class UpdateCard extends Activity {
 
         new GetProductDetails().execute();
 
-        resultButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                new SaveProductDetails().execute();
-            }
-        });
-
-
-
-
-
     }
+
     class GetProductDetails extends AsyncTask<String, String, String> {
 
         /**
@@ -89,7 +75,7 @@ public class UpdateCard extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateCard.this);
+            pDialog = new ProgressDialog(DetailedCard.this);
             pDialog.setMessage("Loading card details. Please wait...");
             pDialog.setIndeterminate(false);
             pDialog.setCancelable(true);
@@ -139,7 +125,7 @@ public class UpdateCard extends Activity {
                             inputPosition.setText(cards.getString(TAG_POSITION));
                             inputPhone.setText(cards.getString(TAG_PHONE));
 
-                        }else{
+                        } else {
                             // продукт с pid не найден
                         }
                     } catch (JSONException e) {
@@ -149,85 +135,6 @@ public class UpdateCard extends Activity {
             });
 
             return null;
-        }
-
-        /**
-         * После завершения фоновой задачи закрываем диалог прогресс
-         **/
-        protected void onPostExecute(String file_url) {
-            // закрываем диалог прогресс
-            pDialog.dismiss();
-        }
-    }
-
-    /**
-     * В фоновом режиме выполняем асинхроную задачу на сохранение продукта
-     **/
-    class SaveProductDetails extends AsyncTask<String, String, String> {
-
-        /**
-         * Перед началом показываем в фоновом потоке прогрксс диалог
-         **/
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pDialog = new ProgressDialog(UpdateCard.this);
-            pDialog.setMessage("Saving product ...");
-            pDialog.setIndeterminate(false);
-            pDialog.setCancelable(true);
-            pDialog.show();
-        }
-
-        /**
-         * Сохраняем продукт
-         **/
-        protected String doInBackground(String[] args) {
-
-            // получаем обновленные данные с EditTexts
-            String company = inputCompany.getText().toString();
-            String name = inputName.getText().toString();
-            String surname = inputSurname.getText().toString();
-            String position = inputPosition.getText().toString();
-            String phone = inputPhone.getText().toString();
-
-            // формируем параметры
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair(TAG_ID, id));
-            params.add(new BasicNameValuePair(TAG_COMPANY, company));
-            params.add(new BasicNameValuePair(TAG_NAME, name));
-            params.add(new BasicNameValuePair(TAG_SURNAME, surname));
-            params.add(new BasicNameValuePair(TAG_POSITION, position));
-            params.add(new BasicNameValuePair(TAG_PHONE, phone));
-
-            // отправляем измененные данные через http запрос
-            JSONObject json = jsonParser.makeHttpRequest(url_update_card, "POST", params);
-
-            // проверяем json success тег
-            try {
-                int success = json.getInt(TAG_SUCCESS);
-
-                if (success == 1) {
-                    // продукт удачно обнавлён
-                    Intent i = getIntent();
-                    // отправляем результирующий код 100 чтобы сообщить об обновлении продукта
-                    setResult(100, i);
-                    finish();
-                } else {
-                    // продукт не обновлен
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            return null;
-        }
-
-        /**
-         * После окончания закрываем прогресс диалог
-         **/
-        protected void onPostExecute(String file_url) {
-            // закрываем прогресс диалог
-            pDialog.dismiss();
         }
     }
 }

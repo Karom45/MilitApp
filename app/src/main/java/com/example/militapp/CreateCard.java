@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import org.apache.hc.core5.http.NameValuePair;
-import org.apache.hc.core5.http.message.BasicNameValuePair;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +37,7 @@ public class CreateCard extends AppCompatActivity {
     JSONParser jsonParser = new JSONParser();
 
 
-    private static String url_create_card = "http://test.devcolibri.com/create_product.php";
+    private static String url_create_card = "http://localhost/android/create_card.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
