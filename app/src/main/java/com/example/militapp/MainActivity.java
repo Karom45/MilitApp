@@ -1,26 +1,28 @@
 package com.example.militapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity{
+import androidx.appcompat.app.AppCompatActivity;
 
-    final int ABOUT_APP = 1;
-    final String LOG_TAG = "myLogs";
+import com.example.militapp.utils.LogUtil;
+
+public class MainActivity extends AppCompatActivity {
+
+    private final int ABOUT_APP = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
     }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(0, ABOUT_APP, 0, R.string.about);
         return super.onCreateOptionsMenu(menu);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void onEnterClick(View View) {
         Intent intent = new Intent(this, CardsActivity.class);
-        Log.d(LOG_TAG, "Вход");
+        LogUtil.debug("Вход");
         startActivity(intent);
     }
 
@@ -54,8 +56,9 @@ public class MainActivity extends AppCompatActivity{
         Intent intent = new Intent(this, CreateCard.class);
         startActivity(intent);
     }
+
     public void onQuitClick(View view) {
         finish();
-        }
     }
+}
 
