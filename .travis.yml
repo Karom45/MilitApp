@@ -1,2 +1,2 @@
 language: android
-script: gradle build
+script: gradlew build
