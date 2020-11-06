@@ -20,7 +20,7 @@ public class CardClient {
 
     private static final CardClient INSTANCE = new CardClient();
 
-    private static final String HOST = "http://192.168.0.100";
+    private static final String HOST = "http://192.168.31.86";
     private static final String URL_ALL_CARDS = HOST + "/android/get_all_cards.php";
     private static final String URL_DELETE_CARDS = HOST + "/android/delete_card.php";
     private static final String URL_CREATE_CARD = HOST + "/android/create_card.php";
