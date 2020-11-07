@@ -1,6 +1,7 @@
 language: android
 before_install:
  - chmod +x gradlew
+ - yes | sdkmanager "platforms;android-29"
 script:
  - ./gradlew clean
  - ./gradlew build 
