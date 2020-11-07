@@ -1,2 +1,6 @@
 language: android
-script: ./gradlew build
+before_install:
+ - chmod +x gradlew
+script:
+ - ./gradlew clean
+ - ./gradlew build 
